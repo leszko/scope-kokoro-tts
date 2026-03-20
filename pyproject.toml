@@ -1,0 +1,15 @@
+[project]
+name = "scope-kokoro-tts"
+version = "0.1.0"
+description = "Kokoro TTS pipeline plugin for Daydream Scope"
+requires-python = ">=3.12"
+dependencies = [
+    "kokoro>=0.8.4",
+]
+
+[project.entry-points."scope"]
+scope_kokoro_tts = "scope_kokoro_tts.plugin"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
