@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "Kokoro TTS pipeline plugin for Daydream Scope"
 requires-python = ">=3.12"
 dependencies = [
+    # Bundled so misaki never calls spacy.cli.download (which uses `python -m pip`;
+    # uv venvs often have no `pip` module).
+    "en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl",
     "kokoro>=0.8.4",
 ]
 
@@ -13,3 +16,6 @@ scope_kokoro_tts = "scope_kokoro_tts.plugin"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
